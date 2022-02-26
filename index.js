@@ -1,11 +1,23 @@
 const calculatorDisplay = document.querySelector('h1');
 const inputBtns = document.querySelectorAll('button');
 const clearBtn = document.getElementById("clear-screen");
+const currentCal = document.querySelector(".current-cal");
 
 //variable used to store operands and operators globally
 let firstValue = 0;
 let operatorValue = '';
 let awaitingNextValue = false;
+
+//this function will update the last calculation text
+function updateCurrCal(val1, val2, oper) {
+    if (oper === '/') {
+        oper = '÷';
+    }
+    if (oper === '*') {
+        oper = '×';
+    }
+    currentCal.textContent = `${val1} ${oper}  ${val2}`;
+}
 
 //this function checks if an operator has been entered or not, if entered, starts a new operand 
 //considers the operand to be contnuious 
@@ -51,6 +63,7 @@ function useOperator(operator) {
     } else {
         const calculationResult = calculate[operatorValue](firstValue, selectedNumber);
         calculatorDisplay.textContent = calculationResult;
+        updateCurrCal(firstValue, selectedNumber, operatorValue);
         firstValue = calculationResult; //to continue operations on obtained results
     }
     awaitingNextValue = true;
@@ -74,4 +87,7 @@ function resetAll() {
     firstValue = 0;
     operatorValue = '';
     awaitingNextValue = false;
+    currentCal.textContent = '0';
 }
+
+clearBtn.addEventListener('click', () => resetAll());

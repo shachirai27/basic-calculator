@@ -8,11 +8,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(to right, #ad5389, #3c1053);
+    background: linear-gradient(to right, #6867AC, #A267AC);
 }
 
 .calculator {
-    background-color: white;
+    background: linear-gradient(to right, #D3DEDC, #92A9BD);
     width: 400px;
     border-radius: 12px;
     box-shadow: 0 5px 30px -5px rgba(0, 0, 0, 0.6);
@@ -78,7 +78,7 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    background-color: rgb(182, 182, 182);
+    background-color: #E5E3C9;
 }
 
 button:hover {
@@ -94,7 +94,7 @@ button:focus {
 }
 
 .operator{
-    background-color: #555;
+    background-color: #789395;
     color: #f1f1f1;
     font-size: 30px;
 }
